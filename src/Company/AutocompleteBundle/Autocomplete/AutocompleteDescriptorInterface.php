@@ -4,9 +4,6 @@ namespace Company\AutocompleteBundle\Autocomplete;
 
 use Doctrine\ORM\QueryBuilder;
 
-/**
- * Interface AutocompleteDescriptorInterface.
- */
 interface AutocompleteDescriptorInterface
 {
     public function getClass(): string;

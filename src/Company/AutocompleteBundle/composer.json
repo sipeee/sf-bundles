@@ -1,0 +1,20 @@
+{
+  "name": "sipeee/company-autocomplete-bundle",
+  "description": "Company Autocomplete Bundle for Symfony",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Company\\AutocompleteBundle\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "Sipos Zoltán",
+      "email": "sipiszoty@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  }
+}
