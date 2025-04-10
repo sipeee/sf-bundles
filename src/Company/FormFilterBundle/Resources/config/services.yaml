@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\FormFilterBundle\FilterType\:
+        resource: '../../FilterType/*'
+        tags:
+            - { name: 'company.filter_type' }
+
+    Company\FormFilterBundle\Form\Type\:
+        resource: '../../Form/Type/*'
+        tags:
+            - { name: 'form.type' }
+
+    Company\FormFilterBundle\Service\:
+        resource: '../../Service/*'

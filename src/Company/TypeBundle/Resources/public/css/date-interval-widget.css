@@ -1,0 +1,556 @@
+.paypal-react-datepicker-component *{
+    box-sizing: border-box;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown {
+    -webkit-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -moz-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -ms-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -o-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle {
+    position: relative;
+    /*height: 35px;*/
+    height: 50px;
+    line-height: 35px;
+    border-color: #bbb;
+    padding: 0 10px 0 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #fff;
+    min-width: 221px;
+    -webkit-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -moz-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -ms-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    -o-transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: border 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle:hover {
+    outline: none;
+    box-shadow: none;
+    border-color: #0070ba;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle span {
+    position: relative;
+    top: -7px;
+    /* move the label up*/
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-datepicker-input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding: 14px 10px 8px 13px;
+    line-height: 18px;
+    cursor: pointer;
+    border: none 0 transparent;
+    background: none;
+    max-width: 100%;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    color: #797a7a;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown span.caret {
+    display: inline-block;
+    position: absolute;
+    top: -1px;
+    right: 8px;
+    bottom: 0;
+    margin: auto 0;
+    padding: 0;
+    width: 18px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown span.caret:before {
+    content: "\e009";
+    font-size: 26px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown a:focus,
+.paypal-react-datepicker-component .react-datepicker-dropdown a:hover {
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown:hover {
+    box-shadow: none;
+    outline: none;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu {
+    width: 100%;
+    min-width: 140px;
+    border: 1px solid #979797;
+    border-top-color: #aaa;
+    margin-top: -3px;
+    padding: 0;
+    text-align: left;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-topleft: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+.paypal-react-datepicker-component.paypal-choice-widget .react-datepicker-dropdown ul.dropdown-menu {
+    overflow: hidden;
+}
+
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li > a.dropdown-option:link,
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li > a.dropdown-option:visited {
+    padding: 4px 20px 4px 15px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li > a.dropdown-option:hover {
+    background-color: #f1f8fc;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li > a.dropdown-option.option-selected,
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li > a.dropdown-option.option-selected:hover {
+    background-color: #0070ba;
+    color: #fff;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu > li:not(.thin-input-group) > a {
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 20px 0 15px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown.open {
+    background-color: #fff;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown.open .dropdown-toggle,
+.paypal-react-datepicker-component .react-datepicker-dropdown.open .dropdown-toggle:hover,
+.paypal-react-datepicker-component .react-datepicker-dropdown.open .dropdown-toggle:active {
+    background-color: #fff !important;
+    border-color: #0070ba !important;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown.open span.caret:before {
+    content: "\e010";
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle {
+    text-align: left;
+}
+.paypal-react-datepicker-component.date-interval-widget .react-datepicker-dropdown,
+.paypal-react-datepicker-component.date-interval-widget .react-datepicker-dropdown .dropdown-toggle {
+    width: 100%;
+}
+.paypal-react-datepicker-component .form-control[readonly] {
+    background-color: #fff;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle ul {
+    height: auto;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul > li,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle ul > li {
+    width: 100%;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul > li .paypal-react-datepicker-submit-span,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle ul > li .paypal-react-datepicker-submit-span {
+    display: inline-block;
+    width: 100%;
+    padding: 0 18px 0 15px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul > li .paypal-react-datepicker-submit-span button,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle ul > li .paypal-react-datepicker-submit-span button {
+    width: 100%;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown ul li.divider,
+.paypal-react-datepicker-component .react-datepicker-dropdown .dropdown-toggle ul li.divider {
+    margin: 6px 0 2px;
+}
+.date-picker-on-right .paypal-react-datepicker-component .react-datepicker-dropdown,
+.date-picker-right-vi .paypal-react-datepicker-component .react-datepicker-dropdown {
+    margin-bottom: 0;
+}
+.date-picker-on-right .paypal-react-datepicker-component .react-datepicker-dropdown .react-dropdown-trigger,
+.date-picker-right-vi .paypal-react-datepicker-component .react-datepicker-dropdown .react-dropdown-trigger {
+    width: 262px;
+}
+.date-picker-on-right .paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu,
+.date-picker-right-vi .paypal-react-datepicker-component .react-datepicker-dropdown ul.dropdown-menu {
+    min-height: 100px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown i.visitor_vx_icon-calender-large {
+    display: inline-block;
+    position: absolute;
+    top: 23px;
+    right: 10px;
+    bottom: 0;
+    margin: auto 0;
+    padding: 0;
+    width: 25px;
+    text-align: right;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-dropdown-label {
+    width: 100% !important;
+}
+
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-default:hover,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-default:focus,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-default.focus {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+}
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-primary:hover,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-primary:focus,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-primary.focus {
+    color: #fff;
+    background-color: #204d74;
+    border-color: #122b40;
+}
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-success:hover,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-success:focus,
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-success.focus {
+    color: #fff;
+    background-color: #398439;
+    border-color: #255625;
+}
+
+.paypal-react-datepicker-component .open > .dropdown-toggle.btn-success {
+    background-image: none;
+}
+
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-dropdown-label {
+    cursor: pointer;
+    display: block;
+    width: 80%;
+    font-size: 10px;
+    font-weight: normal;
+    padding-top: 2%;
+    line-height: 14px;
+    margin-bottom: 0px;
+    color: #6c7378;
+}
+.paypal-react-datepicker-component .react-datepicker-buttonDisplayText {
+    margin-left: 0;
+}
+.paypal-react-datepicker-component i.vx_icon.vx_icon-small.vx_icon-info-small.nodata-vx_icon_info_small:before {
+    font-size: 6rem;
+}
+.paypal-react-datepicker-component .vx_icon {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 0;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.paypal-react-datepicker-component .vx_icon-large:before {
+    font-size: 7.8rem;
+}
+.paypal-react-datepicker-component .dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+.paypal-react-datepicker-component .nav-tabs .dropdown-menu,
+.paypal-react-datepicker-component .nav-pills .dropdown-menu,
+.paypal-react-datepicker-component .navbar .dropdown-menu {
+    margin-top: 0;
+}
+.paypal-react-datepicker-component .dropdown-menu .sub-menu {
+    left: 0;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+.paypal-react-datepicker-component .dropdown-menu {
+    left: -50%;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+}
+.paypal-react-datepicker-component .dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+.paypal-react-datepicker-component .dropdown:hover .dropdown-menu {
+    display: block;
+}
+.paypal-react-datepicker-component .nav-tabs .dropdown-menu,
+.paypal-react-datepicker-component .nav-pills .dropdown-menu,
+.paypal-react-datepicker-component .navbar .dropdown-menu {
+    margin-top: 0;
+}
+.paypal-react-datepicker-component .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+.paypal-react-datepicker-component .dropdown-menu.pull-right {
+    right: 0;
+    left: auto;
+}
+.paypal-react-datepicker-component .dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+.paypal-react-datepicker-component .dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+.paypal-react-datepicker-component .dropdown-menu > li > a:hover,
+.paypal-react-datepicker-component .dropdown-menu > li > a:focus {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+.paypal-react-datepicker-component .dropdown-menu > .active > a,
+.paypal-react-datepicker-component .dropdown-menu > .active > a:hover,
+.paypal-react-datepicker-component .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #337ab7;
+}
+.paypal-react-datepicker-component .dropdown-menu > .disabled > a,
+.paypal-react-datepicker-component .dropdown-menu > .disabled > a:hover,
+.paypal-react-datepicker-component .dropdown-menu > .disabled > a:focus {
+    color: #777777;
+}
+.paypal-react-datepicker-component .dropdown-menu > .disabled > a:hover,
+.paypal-react-datepicker-component .dropdown-menu > .disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    cursor: not-allowed;
+}
+.paypal-react-datepicker-component .open > .dropdown-menu {
+    display: block;
+}
+.paypal-react-datepicker-component .pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+.paypal-react-datepicker-component .dropup .dropdown-menu,
+.paypal-react-datepicker-component .navbar-fixed-bottom .dropdown .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 2px;
+}
+.paypal-react-datepicker-component .dropup .bootstrap-datetimepicker-widget.dropdown-menu{
+    padding: 4px;
+}
+.paypal-react-datepicker-component .btn-group.react-datepicker-dropdown .btn{
+    float: none;
+}
+.paypal-react-datepicker-component .btn-group-justified > .btn-group .dropdown-menu {
+    left: auto;
+}
+
+.paypal-react-datepicker-component .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+.paypal-react-datepicker-component .nav-justified > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+.paypal-react-datepicker-component .nav-tabs .dropdown-menu {
+    margin-top: -1px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.paypal-react-datepicker-component .visitor_vx_icon-calender-large:before {
+    font-size: 2.6rem;
+    color: #0070ba;
+}
+.paypal-react-datepicker-component .icon {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 0;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.paypal-react-datepicker-component .icon-medium:before {
+    font-size: 20px;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .divider + li {
+    margin-top: 15px;
+}
+
+.paypal-react-datepicker-component #myDropdown, .paypal-react-datepicker-component #dropdownTrigger, .paypal-react-datepicker-component .dropdown-menu li {
+    width: 200px;
+}
+.paypal-react-datepicker-component .dropdown-menu > li.thin-input-group{
+    padding: 3px 20px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+.paypal-react-datepicker-component .dropdown-menu > li.thin-input-group ul li{
+    white-space: normal;
+}
+.paypal-react-datepicker-component .dropdown-menu > li > a {
+    display: block;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+.paypal-react-datepicker-component a {
+    text-decoration: none;
+    background-color: transparent;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-input-group {
+    padding-top: 1px;
+    padding-left: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #9da3a6;
+    height: 40px;
+    position: relative;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-input-group .dropdown-menu{
+    overflow: hidden;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-input-label {
+    cursor: pointer;
+    display: block;
+    width: 80%;
+    font-size: 10px;
+    font-weight: normal;
+    padding-left: 2%;
+    margin-bottom: 0px;
+}
+.paypal-react-datepicker-component label {
+    max-width: 100%;
+}
+
+.paypal-react-datepicker-component .react-datepicker-dropdown .react-input-label {
+
+    cursor: pointer;
+    display: block;
+    width: 80%;
+    font-size: 10px;
+    font-weight: normal;
+    padding-left: 2%;
+    margin-bottom: 0px;
+
+}
+.paypal-react-datepicker-component label {
+
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+
+}
+.paypal-react-datepicker-component * {
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.paypal-react-datepicker-component label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown .paypal-react-datepicker-submit {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 35px;
+    background: #e1e7eb;
+    width: 160px;
+    border: none;
+    box-shadow: none;
+    color: #2c2e2f;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: none;
+}
+.paypal-react-datepicker-component.date-interval-widget .react-datepicker-dropdown .paypal-react-datepicker-submit {
+    background: #FC7026;
+    color: #fff;
+}
+.paypal-react-datepicker-component .react-datepicker-dropdown button {
+    height: 40px;
+    width: auto;
+    padding-left: 8px;
+    border-radius: 5px;
+    text-align: left;
+    line-height: 14px;
+    cursor: default;
+}

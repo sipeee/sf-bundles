@@ -1,0 +1,7 @@
+services:
+    company_doctrine_event.doctrine.subscriber.event_handler:
+        class: Company\DoctrineEventBundle\Doctrine\EventSubscriber\EventHandlerSubscriber
+        arguments:
+            - '@event_dispatcher'
+        tags:
+            - { name: 'doctrine.event_subscriber' }

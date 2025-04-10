@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\ProcessorBundle\Command\:
+        resource: '../../Command/*'
+        tags:
+            - { name: 'console.command' }
+
+    Company\ProcessorBundle\Service\:
+        resource: '../../Service/*'
+
+    Company\ProcessorBundle\Service\ProcessHandler:
+        arguments:
+            $cachePool: '@company.cache.db'

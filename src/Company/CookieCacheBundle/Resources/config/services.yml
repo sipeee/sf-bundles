@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\CookieCacheBundle\Kernel\EventSubscriber\:
+        resource: '../../Kernel/EventSubscriber/*'
+        tags:
+            - { name: 'kernel.event_subscriber'}
+
+    Company\CookieCacheBundle\Service\:
+        resource: '../../Service/*'
+
+    company.cache.cookie:
+        class: Company\Library\Psr6Cache\CacheItemPool
+        arguments:
+            $adapter: '@Company\CookieCacheBundle\Service\CookieCacheAdapter'

@@ -1,0 +1,34 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if 0 < (value | length) %}
+        <span class="text-no-wrap">
+        {% set isDisplayed = false %}
+        {% for document in value %}
+            {% set variants = (document | property(field_description.options.variant_field)) %}
+
+            {% if variants[field_description.options.variant].isDisplayedOnWeb %}
+                <a
+                    href="{{ variants[field_description.options.variant].url }}"
+                    title="{{ field_description.options.title | default('Show document(s)') }}"
+                    data-fancybox="gallery-{{ admin.id(object) }}"
+                    data-image-id="{{ document.id }}"
+                    data-caption="{{ document | property(field_description.options.title_field) }}"
+                >
+                    {% if not isDisplayed %}
+                        {{ value|length }}<i class="fa fa-fw fa-file-text-o"></i>
+                    {% endif %}
+
+                    {% set isDisplayed = true %}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        {% if not isDisplayed %}
+            {{ value|length }}<i class="fa fa-fw fa-file-text-o"></i>
+        {% endif %}
+        </span>
+    {% else %}
+        &nbsp;
+    {% endif %}
+{% endblock %}

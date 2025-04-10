@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\AutocompleteBundle\Controller\AutocompleteController:
+        public: true
+
+    Company\AutocompleteBundle\Autocomplete\Manager:
+        arguments:
+            $doctrine: '@doctrine'
+            $propertyAccessor: '@property_accessor'
+        public: false
+
+    Company\AutocompleteBundle\Form\Type\:
+        resource: '../../Form/Type/'
+        tags:
+            - { name: 'form.type' }

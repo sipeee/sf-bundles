@@ -1,0 +1,3 @@
+company_autocomplete_callback:
+    path: /autocomplete/{descriptor}
+    controller: 'Company\AutocompleteBundle\Controller\AutocompleteController::index'

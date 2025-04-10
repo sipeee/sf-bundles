@@ -1,0 +1,57 @@
+{% block picture_file_widget %}
+    {{ block('picture_file_widget_partial_block') | spaceless }}
+{% endblock %}
+
+{% block picture_file_widget_partial_block %}
+    <div {{ block('widget_attributes') }} data-icon-dir="{{ asset('bundles/companydocument/images/file-types') }}">
+        <div class="file-upload-image">
+            <a
+                class="js-fancybox image-keeper"
+                data-gallery="{{ form.parent.vars.id }}"
+                {% if value is not empty and value.file is not empty %}
+                    href="{{ original_data_url }}"
+                    {% if is_displayed_on_web %}
+                        {% if is_image %}
+                            data-type="image"
+                        {% else %}
+                            data-type="iframe"
+                        {% endif %}
+                    {% else %}
+                        data-src=".document-download-window-container"
+                        data-type="inline"
+                    {% endif %}
+                {% endif %}
+                target="_blank"
+                data-caption="{{ title }}"
+                {% if value is not empty and value.file is not empty %}
+                    {% if is_image %}
+                        style="background-image: url('{{ thumbnail_data_url }}')"
+                    {% else %}
+                        style="background-image: url('{{ icon_link }}')"
+                    {% endif %}
+                {% endif %}
+            >
+            </a>
+            <button type="button" class="btn btn-sm btn-success select-image-button" data-toggle="tooltip" title="Kép kiválasztása">
+                <i class="fa fa-fw fal fa-pencil"></i>
+                {{ form_widget(form.file) }}
+            </button>
+            {% if allow_remove %}
+                <button type="button" class="btn btn-sm btn-danger delete-image-button" data-toggle="tooltip" title="Kép törlése">
+                    <i class="fa fa-fw fal fa-trash"></i>
+                </button>
+            {% endif %}
+        </div>
+        {% if has_title %}
+            <div class="title">
+                {{ form_row(form.title) }}
+            </div>
+        {% endif %}
+        <div class="hidden">
+            {% if allow_remove %}
+                {{ form_widget(form.removable) }}
+            {% endif %}
+            {{ form_widget(form.identifier) }}
+        </div>
+    </div>
+{% endblock %}

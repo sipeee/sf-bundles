@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\DocumentBundle\Twig\Extension\:
+        resource: '../../Twig/Extension/*'
+        tags:
+            - { name: 'twig.extension' }

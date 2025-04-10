@@ -1,0 +1,51 @@
+{% if keys|length > 0 %}
+    {% for apikey in keys %}
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-sm-8">
+                <input  class="form-control" type="text" value="{{ apikey.key }}" readonly>
+            </div>
+            <div class="col-sm-4">
+                <div class="btn btn-default pull-right">
+                    <i class="fa fa-clipboard js-copy-key" aria-hidden="true" data-key="{{ apikey.key }}"></i>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+<p class="btn btn-primary js-generate-user-api-key">Generate key</p>
+<script type="text/javascript">
+    UserApiKey = {
+        url: '{{ path('user_profile_generate_api_key') }}',
+        getNewKey: function () {
+            let that = this;
+            $.ajax({
+                url: that.url,
+                method: 'GET',
+                complete: function () {
+                    window.location.reload();
+                }
+            });
+        },
+        copyKey: function (element) {
+            let key = $(element).data('key');
+            navigator.clipboard.writeText(key);
+            let modal = new Modal();
+            let message = key + ' api key is on your clipboard';
+            modal.show('User API key', message);
+            $(document.body).css({'cursor': 'default'});
+        },
+        initialize: function () {
+            let that = this;
+            $('.js-generate-user-api-key').click(function () {
+                that.getNewKey();
+            });
+
+            $('.js-copy-key').click(function () {
+                that.copyKey(this);
+            });
+        }
+    }
+    $(document).ready(function () {
+        UserApiKey.initialize();
+    });
+</script>

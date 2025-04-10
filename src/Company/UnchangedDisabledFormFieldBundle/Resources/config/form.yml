@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\UnchangedDisabledFormFieldBundle\Form\Extension\:
+        resource: '../../Form/Extension/*'
+        tags:
+            - { name: 'form.type_extension', extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }

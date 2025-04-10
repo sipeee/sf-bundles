@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% include '@CompanyDocument/SonataAdmin/list_action_document_field.html.twig' with {
+        'actions': field_description.options,
+        'object': object,
+    } %}
+{% endblock %}

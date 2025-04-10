@@ -1,0 +1,12 @@
+{% block interval_widget %}
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_widget(form.from) }}
+            {{ form_errors(form.from) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_widget(form.to) }}
+            {{ form_errors(form.to) }}
+        </div>
+    </div>
+{% endblock %}

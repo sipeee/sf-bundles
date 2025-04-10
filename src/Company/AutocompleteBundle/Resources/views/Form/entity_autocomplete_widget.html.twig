@@ -1,0 +1,21 @@
+{% block entity_autocomplete_widget %}
+    {{ block('entity_autocomplete_partial_block') | spaceless }}
+{% endblock entity_autocomplete_widget %}
+
+{% block entity_autocomplete_partial_block %}
+    <input
+        type="hidden"
+        name="{{ full_name }}"
+        {% if form.vars.value %} value="{{ form.vars.value }}"{% endif %}
+        {% if multiple %} multiple="multiple"{% endif %}
+    >
+
+    <select
+            id="{{ id }}"
+            {{ block('widget_container_attributes') }}
+            {% if multiple %} multiple="multiple"{% endif %}
+            {% if disabled %} disabled="disabled"{% endif %}
+            {% if required %} required="required"{% endif %}
+    ></select>
+
+{% endblock entity_autocomplete_partial_block %}

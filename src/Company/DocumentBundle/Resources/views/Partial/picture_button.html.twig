@@ -1,0 +1,21 @@
+{% set variants = (document | property(variant_field)) %}
+
+<a
+    href="{{ variants[variant].url }}"
+    title="{{ title | default('Show document(s)') }}"
+    class="js-fancybox btn {{ buttonClass | default('btn-default') }}"
+    data-caption="{{ (title_field is defined) ? (document | property(title_field)) : '' }}"
+    {% if variants[variant].isDisplayedOnWeb %}
+        {% if variants[variant].isImage %}
+            data-type="image"
+        {% else %}
+            data-type="iframe"
+        {% endif %}
+    {% else %}
+        data-type="inline"
+        data-src=".document-download-window-container"
+    {% endif %}
+>
+    <i class="fa fal fa-fw {{ buttonIcon | default('fa-images') }}"></i> {{ buttonText | default('Show gallery') }}
+</a>
+

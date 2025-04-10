@@ -1,0 +1,28 @@
+{% for document in documents %}
+    {% set variants = (document | property(variant_field)) %}
+
+    <a
+        href="{{ variants[variant].url }}"
+        {% if loop.first and title is defined %}
+            title="{{ title }}"
+        {% endif %}
+        class="js-fancybox {% if loop.first %}btn {{ buttonClass | default('btn-default') }}{% else %}hidden{% endif %}"
+        data-gallery="{{ gallery | default('') }}"
+        data-caption="{{ (title_field is defined) ? (document | property(title_field)) : '' }}"
+        {% if variants[variant].isDisplayedOnWeb %}
+            {% if variants[variant].isImage %}
+                data-type="image"
+            {% else %}
+                data-type="iframe"
+            {% endif %}
+        {% else %}
+            data-type="inline"
+            data-src=".document-download-window-container"
+        {% endif %}
+    >
+        {% if loop.first %}
+            {% if buttonIcon is not defined or buttonIcon is not empty %}<i class="fa fal fa-fw {{ buttonIcon | default('fa-images') }}"></i>{% endif %}
+            {% if buttonText is defined %}{{ buttonText }}{% else %}{{ 'Show gallery' }}{% endif %}
+        {% endif %}
+    </a>
+{% endfor %}

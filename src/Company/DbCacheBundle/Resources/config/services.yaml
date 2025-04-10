@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\DbCacheBundle\Service\:
+        resource: '../../Service/*'
+
+    company.cache.db:
+        class: Company\Library\Psr6Cache\CacheItemPool
+        arguments:
+            $adapter: '@Company\DbCacheBundle\Service\DbCacheAdapter'

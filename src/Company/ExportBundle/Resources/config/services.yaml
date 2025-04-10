@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\ExportBundle\Service\:
+        resource: '../../Service/*'
+
+    Company\ExportBundle\Service\FieldTransformer\:
+        resource: '../../Service/FieldTransformer/*'
+        tags:
+            - { name: 'company.export.field_transformer' }
+
+    Company\ExportBundle\Service\TmpFileCacheService:
+        arguments:
+            $rootDir: '%kernel.project_dir%'

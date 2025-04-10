@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Company\TypeBundle\Form\Type\:
+        resource: '../../Form/Type/*'
+        tags:
+            - { name: 'form.type' }
+
+    Company\TypeBundle\Service\:
+        resource: '../../Service/*'

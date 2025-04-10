@@ -1,0 +1,25 @@
+{% block picture_gallery_widget %}
+    {{ block('picture_gallery_widget_partial_block') | spaceless }}
+{% endblock %}
+
+{% block picture_gallery_widget_partial_block %}
+    <div {{ block('widget_attributes') }}>
+
+        {{ form_widget(form.files) }}
+
+        {% if allow_add %}
+            <span class="btn btn-success picture-gallery-file-upload-button">
+                <i class="fa fa-plus"></i>
+                Dokumentum hozzáadása
+                {{ form_widget(form.multiFileLastOffset, {
+                    'attr': {
+                        'class': 'multi-file-last-offset',
+                        'rel': form.multiFileLastOffset.vars.value,
+                    },
+                }) }}
+
+                {{ form_widget(form.multiFiles) }}
+            </span>
+        {% endif %}
+    </div>
+{% endblock %}

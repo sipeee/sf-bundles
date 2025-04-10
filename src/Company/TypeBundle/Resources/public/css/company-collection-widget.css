@@ -1,0 +1,16 @@
+.company-collection-item.allow-delete{
+    position: relative;
+    padding-right: 45px;
+}
+.company-collection-item.allow-delete .parameter-collection-delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.company-collection-item ul, .company-collection-item ul li {
+    display: block;
+    color: #a00;
+    padding: 0;
+    margin: 0;
+}
+

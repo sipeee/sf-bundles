@@ -1,0 +1,8 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field %}
+    {% include '@CompanyDocument/SonataAdmin/show_gallery_content.html.twig' with {
+        documents: value,
+        options: field_description.options,
+    } %}
+{% endblock %}

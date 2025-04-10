@@ -1,0 +1,105 @@
+{% block company_date_interval_widget %}
+    {{ block('company_date_interval_widget_partial_block') | spaceless }}
+{% endblock %}
+
+{% block company_date_interval_widget_partial_block %}
+    <div class="paypal-react-datepicker-component date-interval-widget">
+        <div class="hidden">
+            {{ block('form_widget') }}
+        </div>
+        <div class="paypal-react-datepicker-component date-interval-widget">
+            <div class="btn-group react-datepicker-dropdown">
+                <i class="fa fa-calendar icon icon-medium icon-calendar-half-small react-calendar-icon"></i>
+                <input
+                    type="text"
+                    class="form-control dropdown-input react-datepicker-buttonDisplayText"
+                    readonly="readonly"
+                    data-toggle="dropdown"
+                    value="{{ block('company_date_interval_displayed_value') | spaceless | escape('html_attr') }}"
+                />
+                {{ block('company_date_interval_dropdown') | spaceless }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block company_date_interval_displayed_value %}
+    {% if value.type is not empty and predefinedChoiceLabels[value.type] is not defined %}
+        {% if value.dateFrom is not empty %}
+            {{ value.dateFrom | date('Y-m-d') }}
+        {% endif %}
+        -
+        {% if value.dateTo is not empty %}
+            {{ value.dateTo | date('Y-m-d') }}
+        {% endif %}
+    {% elseif value.type is not empty %}
+        {{ predefinedChoiceLabels[value.type] }}
+    {% else %}
+        {{ placeholder }}
+    {% endif %}
+{% endblock %}
+
+{% block company_date_interval_dropdown %}
+    <ul class="dropdown-menu" role="menu">
+        {% if not required %}
+            <li>
+                <a class="dropdown-option" data-display-label="{{ placeholder | escape('html_attr') }}">
+                    Nincs
+                </a>
+            </li>
+        {% endif %}
+        {% for typeValue, label in predefinedChoiceLabels %}
+            <li>
+                <a class="dropdown-option" data-predefined-value="{{ typeValue }}">
+                    {{ label }}
+                </a>
+            </li>
+        {% endfor %}
+        <li role="separator" class="divider"></li>
+        <li class="thin-input-group">
+            <div>
+                <div class="react-input-group">
+                    <label class="react-input-label" for="input">
+                        -tól
+                    </label>
+                    <i class="fa fa-calendar icon icon-medium icon-calendar-half-small react-calendar-icon"></i>
+                    <input
+                        class="react-datepicker-input date-from-input"
+                        type="text"
+                        value="{{
+                            (value.dateFrom)
+                                ? (value.dateFrom | date('Y-m-d'))
+                                : ''
+                        }}"
+                    />
+                </div>
+            </div>
+        </li>
+        <li class="thin-input-group">
+            <div>
+                <div class="react-input-group">
+                    <label class="react-input-label" for="input">
+                        -ig
+                    </label>
+                    <i class="fa fa-calendar icon icon-medium icon-calendar-half-small react-calendar-icon"></i>
+                    <input
+                        class="react-datepicker-input date-to-input"
+                        type="text"
+                        value="{{
+                            (value.dateTo)
+                                ? (value.dateTo | date('Y-m-d'))
+                                : ''
+                        }}"
+                    />
+                </div>
+            </div>
+        </li>
+        <li class="paypal-react-datepicker-submit-li">
+            <span class="paypal-react-datepicker-submit-span">
+                <button class="paypal-react-datepicker-submit" data-predefined-value="{{ predefinedCustomKey }}" type="button">
+                {{ buttonText }}
+                </button>
+            </span>
+        </li>
+    </ul>
+{% endblock %}

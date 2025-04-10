@@ -1,0 +1,18 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
+
+{% block field %}
+    {% if 0 < (value | length) %}
+    <div class="box box-primary animated fadeIn">
+        <div class="box-header table-responsive no-padding picture-file-uploads-box">
+            {% for document in value %}
+                {% include '@CompanyDocument/SonataAdmin/show_picture_content.html.twig' with {
+                    document: document,
+                    options: field_description.options,
+                } %}
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        There is no uploaded document
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% set variants = (document | property(options.variant_field)) %}
+{% set originalVariant = variants[options.variant | default('original')] %}
+{% set thumbnailVariant = variants[options.thumbnail_variant | default('thumbnail') ] %}
+{% if originalVariant.file is not null %}
+<div class="picture-file-upload-widget selected {% if not originalVariant.isImage %}icon{% endif %}">
+    <div class="file-upload-image">
+        <a
+            href="{{ originalVariant.url }}"
+            class="image-keeper"
+            {% if originalVariant.isDisplayedOnWeb %}
+                data-fancybox="{{ options.fancybox_group }}"
+                {% if originalVariant.isImage %}
+                    data-type="image"
+                {% else %}
+                    data-type="iframe"
+                {% endif %}
+            {% endif %}
+            {% if
+                options.title_field is defined and
+                options.title_field is not empty and
+                (document | property(options.title_field)) is not empty
+            %}
+                title="{{ (document | property(options.title_field)) }}"
+                data-caption="{{ (document | property(options.title_field)) }}"
+            {% endif %}
+            style="background-image: url('{{
+            thumbnailVariant.isImage
+                ? thumbnailVariant.url
+                : thumbnailVariant.iconLink
+            }}')"
+            target="_blank"
+        >
+
+        </a>
+    </div>
+    {% if
+        options.title_field is defined and
+        options.title_field is not empty and
+        (document | property(options.title_field)) is not empty
+    %}
+        <div class="title">
+            {{ document | property(options.title_field) }}
+        </div>
+    {% endif %}
+</div>
+{% else %}
+    There is no uploaded document
+{% endif %}

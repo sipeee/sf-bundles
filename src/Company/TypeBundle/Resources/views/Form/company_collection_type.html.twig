@@ -1,0 +1,58 @@
+{% block company_collection_widget %}
+    {{ block('company_collection_widget_partial_block') | spaceless }}
+{% endblock %}
+
+{% block company_collection_widget_partial_block %}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({
+            'data-prototype': form_row(prototype),
+            'data-prototype-name': prototype.vars.name
+        }) %}
+    {% endif %}
+    <div {{ block('widget_container_attributes') }}>
+        <div class="company-collection-body">
+        {% for child in form %}
+            {{ form_row(child) }}
+        {% endfor %}
+        </div>
+        {{ form_rest(form) }}
+        {% if allow_add and add_button_text is not empty %}
+            <div class="company-collection-add">
+                <a href="#" class="btn btn-success {% if disabled %}disabled{% endif %}">
+                    <i class="fa fa-plus" aria-hidden="true"></i> {{ add_button_text }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block company_collection_item_widget %}
+    {{ form_widget(form) | spaceless }}
+{% endblock %}
+
+{% block form_collection_item_widget %}
+    {{ block('form_collection_item_row_partial_block') | spaceless }}
+{% endblock %}
+
+{% block form_collection_item_row_partial_block %}
+    {% set childItemCount = ( form | length ) %}
+    {% set childSize = 12 / ( form | length ) %}
+    {% set totalSize = 0 %}
+    <div class="company-collection-row {% if allow_delete %}allow-delete{% endif %}">
+        <div class="row">
+        {% for fieldName, fieldItem in form %}
+            {% set currentSize = (loop.last ? (12 - totalSize) : (column_sizes[fieldName] is defined ? column_sizes[fieldName] : childSize ) ) %}
+            <div class="col-xs-{{ currentSize }}">
+                {{ form_widget(fieldItem, { label: false }) }}
+                {{ form_errors(fieldItem) }}
+            </div>
+            {% set totalSize = totalSize + currentSize %}
+        {% endfor %}
+        </div>
+        {% if allow_delete %}
+            <a href="#" class="btn btn-danger company-collection-delete-button {% if disabled %}disabled{% endif %}">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

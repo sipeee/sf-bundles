@@ -1,0 +1,17 @@
+{% if 0 < (documents | length) %}
+<div class="box box-primary animated fadeIn">
+    <div class="box-header table-responsive no-padding picture-file-uploads-box">
+        {% for document in documents %}
+            {% include '@CompanyDocument/SonataAdmin/show_picture_content.html.twig' with {
+                document: document,
+                options: options,
+                fancybox_group: options.fancybox_group is defined
+                    ? options.fancybox_group
+                    : ''
+            } %}
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    {{ emptyText | default('company.document.show.empty' | trans({}, 'CompanyDocumentBundle')) }}
+{% endif %}

@@ -1,0 +1,157 @@
+.picture-gallery-widget .form-group{
+    margin-bottom: 0;
+}
+.picture-gallery-image-container > .form-group{
+    float: left;
+}
+.file-upload-widget {
+    margin-bottom: 10px;
+}
+
+.file-upload-widget .btn{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.file-upload-widget span{
+    padding-left: 3px;
+}
+
+.picture-file-upload-widget{
+    margin: 0 5px 5px 0;
+    width: 100px;
+    display: inline-block;
+    position: relative;
+}
+.picture-file-upload-widget {
+    margin: 0 10px 10px 0;
+}
+.picture-gallery-widget .company-collection-body div {
+    display: inline-block;
+    vertical-align: text-top;
+}
+.picture-gallery-widget .company-collection-body div div{
+    display: block;
+    vertical-align: auto;
+}
+
+.picture-gallery-file-upload-button{
+    position: relative;
+}
+.picture-gallery-file-upload-button .company-collection-widget{
+    height: 0;
+    line-height: 0;
+}
+.picture-file-upload-widget .file-upload-image {
+    position: relative;
+    height: 100px;
+}
+.picture-file-upload-widget .image-keeper {
+    display:block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ccc url('../images/upload-icon.png') no-repeat center center;
+}
+
+.picture-file-upload-widget.selected .image-keeper {
+    background-size: contain;
+}
+.picture-file-upload-widget.selected.icon .image-keeper {
+    background-size: auto;
+}
+
+.picture-file-upload-widget .image-keeper input,
+.picture-gallery-file-upload-button input{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 2000px;
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.picture-file-upload-widget .delete-image-button {
+    display: none;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    opacity: .75;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.picture-file-upload-widget .delete-image-button:hover {
+    opacity: 1;
+}
+
+.picture-file-upload-widget.selected .delete-image-button,
+.picture-gallery-widget .picture-file-upload-widget .delete-image-button {
+    display: block;
+}
+
+.picture-file-upload-widget .checkbox {
+    display: none;
+}
+.picture-file-upload-widget .hidden{
+    display: block;
+}
+.document-download-window-container .download-button {
+    display: block;
+    width: 108px;
+    height: 108px;
+    background: url('../images/big-download-icon.png') no-repeat center center;
+    margin: 0 auto;
+}
+.document-download-window-container .title-placeholder {
+    margin-top: 5px;
+    margin-bottom: -5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+.document-download-window-container .filename-placeholder {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+}
+
+.picture-file-upload-widget .select-image-button {
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    opacity: .50;
+    transition: opacity .2s;
+    cursor: pointer;
+    overflow: hidden;
+}
+.picture-file-upload-widget .select-image-button:hover {
+    opacity: 1;
+}
+.picture-file-upload-widget.selected .select-image-button,
+.picture-gallery-widget .picture-file-upload-widget .select-image-button {
+    display: block;
+}
+.picture-file-upload-widget .select-image-button div{
+    height: 0;
+}
+.picture-file-upload-widget .select-image-button input{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+}

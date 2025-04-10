@@ -1,0 +1,17 @@
+{% set variants = object | property(actions.variant_field) %}
+{% set variant = variants[actions.variant] %}
+
+{% if variant.file is not null %}
+    <a
+            href="{{ variant.url }}"
+            title="{{ actions.title | default('Show document') }}"
+            class="btn btn-sm btn-{{ actions.button_class | default('default') }}"
+            data-fancybox="document-{{ object.id }}"
+            data-image-id="{{ object.id }}"
+            {% if (actions.title_field | default(false)) is not empty %}
+                data-caption="{{ object | property(actions.title_field) }}"
+            {% endif %}
+    >
+        <i class="fa fa-fw fa-{{ actions.button_icon | default('download') }}"></i>
+    </a>
+{% endif %}
